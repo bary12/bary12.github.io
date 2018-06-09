@@ -26,4 +26,4 @@ var e=arguments[3],t=require("buffer").Buffer;Object.defineProperty(exports,"__e
 },{"vue":9,"../../../README.md":18,"../../../src/":20,"v-tooltip":19,"../style.scss":17}],4:[function(require,module,exports) {
 "use strict";var e=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};exports.__esModule=!0;var r=e(require("vue")),t=e(require("./components/App.vue"));require("markdown-air/css/air.css"),new r.default({el:"#app",components:{App:t.default},render:function(e){return e(t.default)},template:"<App />"});
 },{"vue":9,"./components/App.vue":7,"markdown-air/css/air.css":17}]},{},[4], null)
-//# sourceMappingURL=/app.eebe1e02.map
+//# sourceMappingURL=esolangs/nikud/app.eebe1e02.map
