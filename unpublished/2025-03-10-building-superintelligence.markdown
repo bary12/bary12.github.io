@@ -46,6 +46,6 @@ Reasoning models are enabled by the introduction of another post-training method
 
 Learning algorithms can generally be divided into two classes:
 
-* **Supervised Learning** algorithms teach a model using pre-collected data. In the case of LLMs, the model is trained to predict the next word in a text from the dataset. The end result is that the 
+* **Supervised Learning** algorithms teach a model using pre-collected data. In the case of LLMs, the model is trained to predict the next word in a text from the dataset. The end result is that the model learns to *mimic* the dataset well.
 * **Reinforcement Learning** algorithms let the model generate a full text. Then, the text is ranked according to some 
 
