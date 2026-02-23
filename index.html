@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bary Levy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 1000px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 0.6fr 1.5fr;
+            gap: 60px;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #8B6F47;
+            margin-bottom: 28px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 200px;
+            align-items: flex-start;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #8B6F47;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            opacity: 0.7;
+        }
+
+        .social-link .icon {
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .right-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #8B6F47;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bio {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            font-size: 16px;
+        }
+
+        .works-section {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .works-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .works-group h2 {
+            color: #aaa;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .works-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .work-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: padding-left 0.2s ease;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+        }
+
+        .work-item:hover {
+            padding-left: 6px;
+        }
+
+        .work-item a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .work-item a:hover {
+            color: #8B6F47;
+        }
+
+        .cve-tag {
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #c0392b;
+            background: #fdf0ef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        .cvss-badge {
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            letter-spacing: 0.3px;
+        }
+
+        .cvss-critical {
+            color: #7b0000;
+            background: #ffe0e0;
+        }
+
+        .cvss-high {
+            color: #7a3800;
+            background: #fff0e0;
+        }
+
+        .stars-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+        }
+
+        .stars-badge svg {
+            width: 13px;
+            height: 13px;
+            fill: #f0c040;
+            stroke: none;
+        }
+
+        .work-description {
+            color: #888;
+            font-size: 13px;
+            margin-top: 4px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+                gap: 30px;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .bio {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Section: Profile Picture & Social Links -->
+        <div class="left-section">
+            <img src="bary.jpeg" alt="Profile Picture" class="profile-image">
+            <p class="profile-name">Bary Levy</p>
+            <div class="social-links">
+                <span class="social-link">
+                    <i data-lucide="map-pin"></i>
+                    <span>Tel Aviv, Israel</span>
+                </span>
+                <a href="http://x.com/BaryLevy_" class="social-link">
+                    <i data-lucide="twitter"></i>
+                    <span>@BaryLevy_</span>
+                </a>
+                <a href="https://www.linkedin.com/in/bary-levy/" class="social-link">
+                    <i data-lucide="linkedin"></i>
+                    <span>Bary Levy</span>
+                </a>
+                <a href="https://github.com/bary12" class="social-link">
+                    <i data-lucide="github"></i>
+                    <span>bary12</span>
+                </a>
+                <a href="mailto:barylevi@gmail.com" class="social-link">
+                    <i data-lucide="mail"></i>
+                    <span>barylevi@gmail.com</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Section: Bio & Works -->
+        <div class="right-section">
+            <h1>Staying Human Through the AI Race</h1>
+            
+            <p class="bio">
+                I'm a Security and Machine Learning researcher,
+                currently focused on building infrastructure for AI Safety and alignment research in Israel.
+                <br />
+                I also teach modern deep learning and LLM internals at various independent groups.
+            </p>
+
+            <div class="works-section">
+                <div class="works-group">
+                    <h2>CVEs</h2>
+                    <div class="works-list">
+                        <div class="work-item">
+                            <a href="https://github.com/vllm-project/vllm/security/advisories/GHSA-mrw7-hf4f-83pf">
+                                <span class="cve-tag">CVE-2025-62164</span>
+                                Remote code execution in vLLM
+                                <span class="cvss-badge cvss-high">8.8 High</span>
+                            </a>
+                            <p class="work-description">Loading user-supplied tensors through API endpoints triggered memory corruption in PyTorch</p>
+                        </div>
+                        <div class="work-item">
+                            <a href="https://nvd.nist.gov/vuln/detail/CVE-2024-22415">
+                                <span class="cve-tag">CVE-2024-22415</span>
+                                Remote code execution in JupyterLab
+                                <span class="cvss-badge cvss-critical">9.8 Critical</span>
+                            </a>
+                            <p class="work-description">Jupyter-lsp, a plugin installed by default on JupyterLab, allowed users to write to arbitrary files on the system, leading to remote code execution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="works-group">
+                    <h2>Open Source</h2>
+                    <div class="works-list">
+                        <div class="work-item">
+                            <a href="https://github.com/GerevAI/gerev">
+                                Gerev
+                                <span class="stars-badge">
+                                    <svg viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>
+                                    <span id="gerev-stars">…</span>
+                                </span>
+                            </a>
+                            <p class="work-description">Self-hosted search engine for internal company data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+        fetch('https://api.github.com/repos/GerevAI/gerev')
+            .then(r => r.json())
+            .then(d => {
+                const el = document.getElementById('gerev-stars');
+                if (el && d.stargazers_count != null) {
+                    el.textContent = d.stargazers_count.toLocaleString();
+                }
+            })
+            .catch(() => {});
+    </script>
+</body>
+</html>
